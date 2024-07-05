@@ -7,12 +7,14 @@ import scrapy
 import re
 from py_email_scraping.items import EmailItem  
 
+
 class MySpider(scrapy.Spider):
     name = "marketparts"
-    allowed_domains = ["marketparts.com"]
-    start_urls = [
-        "https://www.marketparts.com/"
-    ]
+    
+    def __init__(self, domain=None, *args, **kwargs):
+        super(MySpider, self).__init__(*args, **kwargs)
+        self.allowed_domains = [domain]
+        self.start_urls = [f"http://{domain}"]
 
     def parse(self, response):
         # Extract emails from the response body
@@ -24,6 +26,6 @@ class MySpider(scrapy.Spider):
 
         # Follow valid links
         for href in response.xpath("//a/@href").getall():
-            # Skip links that don't start with http, https, or /
             if href.startswith(('http', 'https', '/')):
                 yield response.follow(href, self.parse)
+
