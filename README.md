@@ -10,7 +10,7 @@ only requires the website domain, and it will get through a POST request all the
 - Gives the object and the option to download it
 - Timeout if website too big (no scraping on ytb for example)
 
-## how to use :
+## How to use :
 
 launch the server endpoint (in py_email_scraping folder) :
 
@@ -23,3 +23,10 @@ then your server is now listening to your queries so you can (modify your scrape
 ```
 curl -X POST http://127.0.0.1:5000/scrape -H "Content-Type: application/json" -d '{"domain": "example.com"}'
 ```
+
+### Resources
+
+made with scrapy and flask
+
+- https://scrapy.org/
+- https://flask.palletsprojects.com/en/3.0.x/
