@@ -8,10 +8,10 @@ import re
 from py_email_scraping.items import EmailItem  
 
 class MySpider(scrapy.Spider):
-    name = "arxama"
-    allowed_domains = ["arxama.com"]
+    name = "marketparts"
+    allowed_domains = ["marketparts.com"]
     start_urls = [
-        "https://www.arxama.com/"
+        "https://www.marketparts.com/"
     ]
 
     def parse(self, response):
